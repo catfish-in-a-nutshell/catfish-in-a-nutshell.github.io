@@ -3,17 +3,17 @@
 	Flavor.intro = [
 		{
 			rule: 'const',
-			payload: 'This is where '
+			payload: '这里是放'
 		}, {
 			rule: 'rand',
 			payloads: [
-				'a bad joke',
-				'some random text',
-				'flavor text'
+				'冷笑话',
+				'某些随机文字',
+				'介绍文字'
 			]
 		}, {
 			rule: 'const',
-			payload: ' goes.'
+			payload: ' 的地方.'
 		}
 	];
 

@@ -19,15 +19,15 @@
 
   function renderEvent(ev) {
     if (ev[0] == 'find') {
-      return 'find ' + ev[1].name;
+      return '挖出 ' + ev[1].name;
     }
     else if (ev[0] == 'improve') {
-      return 'could find ' + ev[2].name + ' (with ' + ev[2].display(ev[1]) + ')';
+      return '可以挖出 ' + ev[2].name + ' (需要 ' + ev[2].display(ev[1]) + ')';
     }
   }
 
   function renderExcav(ex) {
-    var msg = 'Excavation ' + ex[0] + ' (' + ex[1] + ' ahead): ';
+    var msg = '挖掘深度 ' + ex[0] + ' (还有 ' + ex[1] + '): ';
     var evs = [];
     for (var i = 2; i < ex.length; i++) {
       evs.push(renderEvent(ex[i]));
@@ -66,7 +66,7 @@
       }
 	  View.raw.sv = "";
 	  $('.artifactviewer').show();
-	  $('.viewer-results').empty().html("Click on a value above to see available artifact requirements for that value.");
+	  $('.viewer-results').empty().html("点击上面的一个值，查看该值对应的遗物需求，");
 	  $('#override-reincarnation').val(this.save.reincarnation);
 
     }
@@ -170,7 +170,7 @@
             if (!artifact.nocache) artifact.random = artifact.random(this.save);
             this.eligible.push(artifact);
             var name = artifact.name;
-            if (excav < artifact.excav) name += ' (after ' + artifact.excav + ')';
+            if (excav < artifact.excav) name += ' (在 ' + artifact.excav + ' 深度之后)';
             View.raw.eligible.push(name);
             if (artifact.notry && artifact.notry(this.save)) {
               View.raw.unobtain.push(artifact.name);
@@ -180,7 +180,7 @@
           else {
             this.nonrandom.push(artifactCopy(artifact));
             var name = artifact.name;
-            if (excav < artifact.excav) name += ' (at ' + artifact.excav + ')';
+            if (excav < artifact.excav) name += ' (在 ' + artifact.excav + ' 深度)';
             View.raw.nonrandom.push(name);
           }
         }
@@ -199,7 +199,7 @@
       this.chart = Chart.Line($('#chartcontainer'), {
         data: {
           datasets: [{
-            label: 'Value',
+            label: '值',
             data: this.small_values,
             pointBackgroundColor: 'rgba(91, 110, 225, 0.7)',
             pointStrokeColor: 'rgba(63, 63, 116, 1)'
@@ -209,7 +209,7 @@
           showLines: false,
           title: {
             display: true,
-            text: 'Small RNG Values',
+            text: '小随机数值',
             fontSize: 16
           },
           legend: {
@@ -221,7 +221,7 @@
               position: 'bottom',
               scaleLabel: {
                 display: true,
-                labelString: 'Number of RNG Values Ahead',
+                labelString: '前方的随机数个数',
                 fontSize: 14,
                 fontStyle: 'bold'
               }
@@ -229,7 +229,7 @@
             yAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: 'RNG Value',
+                labelString: '随机数值',
                 fontSize: 14,
                 fontStyle: 'bold'
               }
@@ -247,18 +247,18 @@
 	this.viewArtifacts = function() {
 		if (View.raw.sv) {
 			var svs,i,reinc;
-			$(".viewer-results").empty().html("<b>Excavations:</b>  " + (View.raw.eligible.length > 0 ? Math.ceil(View.raw.sv.x / View.raw.eligible.length) + " (If current number of eligible artifacts does not change)":"Unable to move small values due to 0 eligible artifacts")
-			+ "<br><b>Values:</b>  " + View.raw.sv.x + " values ahead " + " with <b>Small Value:</b> " + View.raw.sv.y);
+			$(".viewer-results").empty().html("<b>挖掘深度:</b>  " + (View.raw.eligible.length > 0 ? Math.ceil(View.raw.sv.x / View.raw.eligible.length) + " (如果有效遗物的数量不变)":"无法移动小值，因为没有有效遗物")
+			+ "<br><b>值:</b>  前方第 " + View.raw.sv.x + " 个随机值， " + " 是 <b>小值:</b> " + View.raw.sv.y);
 			if (View.raw.unowned.length) {
 				$(".viewer-results").append("<br><br><table><tbody>");
-				svs = View.raw.eligible.length > 1 ? "<th> Small Value Shifts Required <a>(?)</a></th>" : "";
-				$(".viewer-results tbody").append("<tr><th> Artifact </th><th> Requirement </th>" + svs);
+				svs = View.raw.eligible.length > 1 ? "<th> 需要的小值偏移量 <a>(?)</a></th>" : "";
+				$(".viewer-results tbody").append("<tr><th> 遗物 </th><th> 需求 </th>" + svs);
 				View.raw.eligible.length > 1 && $(".viewer-results th a").popover({
 					trigger: "hover",
 					html: true,
-					content: 'Every time you excavate, each eligible artifact consumes a small value per excavation. If you have more than one eligible artifact, this means that a good'
-					+ ' small value can be consumed by the "wrong" artifact. You can shift the small values your current artifacts will consume by excavating with less (but at least one) eligible artifacts, likely in a different run.'
-					+ '	<br \><b>Warning:</b> If an artifact becomes eligible at an even number of excavations such as 2000, that excavation will also cause a small value shift.'
+					content: '当你挖掘时，每个有效遗物每次挖掘会消耗1个随机值。如果你同时有不止一个有效遗物，这意味着'
+					+ '一个好的小值可能被那个“错的”遗物消耗掉。你可以重开、在有更少（但至少1个）有效遗物时挖掘，来让小值发生偏移。'
+					+ '	<br \><b>注意:</b> 如果有一个遗物在偶数次挖掘(比如2000次)时变得有效，那一次挖掘同样会造成一次小值偏移。'
 				});
 			}
 			reinc = ($("#override-box").is(":checked") && !isNaN(parseInt($('#override-reincarnation').val()))) ? $('#override-reincarnation').val() : this.save.reincarnation;
@@ -269,10 +269,10 @@
 				if (!artifact.reincarnation || reinc >= artifact.reincarnation) {
 					var probability = artifact.required ? artifact.display(artifact.required(View.raw.sv.y)) : artifact.random ? View.raw.sv.y <= artifact.random(this.save, View.raw.sv.x) : 0;
 					//change input if required: true = Obtainable, false = Not Obtainable, an actual value is unchanged
-					if (probability = !0 === probability ? "Obtainable" : probability === !1 ? "Not Obtainable" : probability) {
+					if (probability = !0 === probability ? "可获得" : probability === !1 ? "不可获得" : probability) {
 						if(i < View.raw.eligible.length && View.raw.eligible.length > 1) {
 							svs = View.raw.sv.x % View.raw.eligible.length, svs = (i >= svs ? View.raw.eligible.length : 0) + svs - i - 1;
-							svs = ("<td>" + (svs === 0 ? "Uses Value" : (svs + " Shift" + (svs == 1 ? "" : "s"))) + "</td>");
+							svs = ("<td>" + (svs === 0 ? "使用该值" : (svs + " 次偏移")) + "</td>");
 						}
 						$(".viewer-results tbody").append("<tr><td>" + artifact.name + "</td><td>" + probability + "</td>" + svs + "</tr>");
 					}
@@ -366,7 +366,7 @@
     $('#doSaveCopy').on('click', function(e) {
       $('#saveInput').trigger('focus');
       var save = $('#saveInput').val();
-      window.prompt('Copy to clipboard: Press Ctrl+C, then Enter', save);
+      window.prompt('复制到剪贴板: 按Ctrl+C, 然后Enter', save);
     });
 
     // Bind Clear button to clear the save input field

@@ -1,36 +1,36 @@
 var Artifacts = [
   {
-    name: 'Ancient Stoneslab 1',
+    name: '古老石板 1(Ancient Stoneslab 1)',
     id: 123,
     excav: 5
   },
   {
-    name: 'Fossilized Piece of Bark 1',
+    name: '化石树皮 1(Fossilized Piece of Bark 1)',
     id: 127,
     excav: 10
   },
   {
-    name: 'Bone Fragment 1',
+    name: '骨头碎片 1(Bone Fragment 1)',
     id: 125,
     excav: 15
   },
   {
-    name: 'Ancient Stoneslab 2',
+    name: '古老石板 2(Ancient Stoneslab 2)',
     id: 124,
     excav: 20
   },
   {
-    name: 'Fossilized Piece of Bark 2',
+    name: '化石树皮 2(Fossilized Piece of Bark 2)',
     id: 128,
     excav: 25
   },
   {
-    name: 'Bone Fragment 2',
+    name: '骨头碎片 1(Bone Fragment 2)',
     id: 126,
     excav: 30
   },
   {
-    name: 'Key to the Lost City',
+    name: '遗落之城的钥匙(Key to the Lost City)',
     id: 161,
 	  reincarnation: 23,
     fixed: function(save) {
@@ -39,7 +39,7 @@ var Artifacts = [
     excav: 1500
   },
   {
-    name: 'Ancient Device',
+    name: '古老装置(Ancient Device)',
     id: 160,
 	  reincarnation: 22,
     fixed: function(save) {
@@ -53,7 +53,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Earth Core',
+    name: '地核(Earth Core)',
     id: 184,
 	  reincarnation: 29,
     fixed: function(save) {
@@ -62,7 +62,7 @@ var Artifacts = [
     excav: 2750
   },
   {
-    name: 'Horn of the Kings',
+    name: '众王号角(Horn of the Kings)',
     id: 186,
 	  reincarnation: 29,
     fixed: function(save) {
@@ -74,7 +74,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Flame of Bondelnar',
+    name: '示时石塔之焰(Flame of Bondelnar)',
     id: 185,
 	  reincarnation: 29,
     fixed: function(save) {
@@ -86,7 +86,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Obsidian Shard',
+    name: '黑曜石碎片(Obsidian Shard)',
     id: 240,
 	  reincarnation: 75,
     fixed: function(save) {
@@ -95,7 +95,7 @@ var Artifacts = [
     excav: 8000
   },
   {
-    name: 'Rough Stone',
+    name: '糙石(Rough Stone)',
     id: 151,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469);
@@ -111,7 +111,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Scarab of Fortune',
+    name: '幸运圣甲虫(Scarab of Fortune)',
     id: 119,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.alignment == 3;
@@ -130,7 +130,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Chocolate Cookie',
+    name: '巧克力曲奇(Chocolate Cookie)',
     id: 120,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469);
@@ -144,11 +144,11 @@ var Artifacts = [
 	  return value * 5000;
 	},
 	display: function(value) {
-	  return Math.ceil(value) + ' Excavation' + (value>1?'s':'') + ' at this point';
+	  return '这时的挖掘深度 ' + Math.ceil(value);
 	}
   },
   {
-    name: 'Fossilized Rodent',
+    name: '啮齿动物化石(Fossilized Rodent)',
     id: 137,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469);
@@ -160,11 +160,11 @@ var Artifacts = [
       return Math.ceil(value * 500000000);
     },
     display: function(value) {
-      return value + ' Total Treasure Click' + (value>1?'s':'');
+      return value + ' 总点击数（本R）';
     }
   },
   {
-    name: 'Power Orb',
+    name: '能量球(Power Orb)',
     id: 148,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469);
@@ -176,11 +176,11 @@ var Artifacts = [
       return Math.ceil(value * 1500000);
     },
     display: function(value) {
-      return value + ' Max Mana';
+      return '魔上限 ' + value;
     }
   },
   {
-    name: 'Pink Carrot',
+    name: '粉色胡萝卜(Pink Carrot)',
     id: 147,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 0 && save.prestigeFaction == -1;
@@ -196,7 +196,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Bottled Voice',
+    name: '瓶装之音(Bottled Voice)',
     id: 132,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 0 && save.prestigeFaction == -1;
@@ -208,11 +208,11 @@ var Artifacts = [
       return Math.ceil(value * 4000000);
     },
     display: function(value) {
-      return value + ' Fairy Chanting Cast' + (value>1?'s':'');;
+      return '施放 Fairy Chanting ' + value + '次';
     }
   },
   {
-    name: 'Lucky Clover',
+    name: '幸运四叶草(Lucky Clover)',
     id: 143,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 1 && save.prestigeFaction == -1;
@@ -224,11 +224,11 @@ var Artifacts = [
       return Math.ceil(value * 2) + 1;
     },
     display: function(value) {
-      return value + ' Consecutive Elven Luck' + (value>1?'s':'');
+      return ' 连续触发精灵幸运(Elven Luck) ' + value + ' 次';
     }
   },
   {
-    name: 'Mini-treasure',
+    name: '迷你宝物(Mini-treasure)',
     id: 144,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 1 && save.prestigeFaction == -1;
@@ -240,11 +240,11 @@ var Artifacts = [
       return Math.ceil(value * 300000000);
     },
     display: function(value) {
-      return value + ' Treasure Click' + (value>1?'s':'');
+      return value + ' 点击数';
     }
   },
   {
-    name: 'Pillar Fragment',
+    name: '支柱碎块(Pillar Fragment)',
     id: 146,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 2 && save.prestigeFaction == -1;
@@ -260,7 +260,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Divine Sword',
+    name: '神圣之剑(Divine Sword)',
     id: 135,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 2 && save.prestigeFaction == -1 && save.stats[99].statsReset >= 3;
@@ -272,11 +272,11 @@ var Artifacts = [
       return Math.ceil(value * 6000);
     },
     display: function(value) {
-      return value + ' Consecutive Angel Affiliation' + (value>1?'s':'');
+      return value + ' 次连续与天使结盟';
     }
   },
   {
-    name: 'Ancient Coin Piece',
+    name: '远古钱币(Ancient Coin Piece)',
     id: 129,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 3 && save.prestigeFaction == -1;
@@ -288,11 +288,11 @@ var Artifacts = [
       return Math.ceil(value * 5000000000);
     },
     display: function(value) {
-      return value + ' Total Faction Coins Found';
+      return value + ' 总种族币数（本R）';
     }
   },
   {
-    name: 'Goblin Purse',
+    name: '哥布林钱包(Goblin Purse)',
     id: 139,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 3 && save.prestigeFaction == -1;
@@ -304,11 +304,11 @@ var Artifacts = [
       return Math.ceil(value * 30000000);
     },
     display: function(value) {
-      return value + ' Tax Collection Cast' + (value>1?'s':'');;
+      return '施放Tax Collection' + value + '次';
     }
   },
   {
-    name: 'Rotten Organ',
+    name: '腐坏的器官(Rotten Organ)',
     id: 150,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 4 && save.prestigeFaction == -1;
@@ -320,11 +320,11 @@ var Artifacts = [
       return Math.ceil(value * 50000);
     },
     display: function(value) {
-      return value + ' Base Assistant' + (value>1?'s':'');;
+      return value + ' 个基础助手';
     }
   },
   {
-    name: 'Jaw Bone',
+    name: '下颌骨(Jaw Bone)',
     id: 142,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 4 && save.prestigeFaction == -1&& util.save.stat(save, 45, 1) >= 86400;
@@ -336,11 +336,11 @@ var Artifacts = [
       return Math.ceil(value * 86400000);
     },
     display: function(value) {
-      return util.render.time(value) + ' Total Offline Time';
+      return util.render.time(value) + ' 离线时间';
     }
   },
   {
-    name: 'Demonic Figurine',
+    name: '恶魔雕像(Demonic Figurine)',
     id: 134,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 5 && save.prestigeFaction == -1 && util.save.trophies(save) >= 666;
@@ -350,7 +350,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Demon Horn',
+    name: '恶魔之角(Demon Horn)',
     id: 140,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 5 && save.prestigeFaction == -1 && save.stats[100].statsReset >= 3;
@@ -362,11 +362,11 @@ var Artifacts = [
       return Math.ceil(value * 6000);
     },
     display: function(value) {
-      return value + ' Consecutive Demon Affiliation' + (value>1?'s':'');
+      return value + ' 次连续与恶魔结盟';
     }
   },
   {
-    name: 'Huge Titan Statue',
+    name: '巨大的泰坦雕像(Huge Titan Statue)',
     id: 141,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 6 && save.prestigeFaction == -1;
@@ -378,11 +378,11 @@ var Artifacts = [
       return Math.ceil(value * 100000);
     },
     display: function(value) {
-      return value + ' Lightning Strike Cast' + (value>1?'s':'');;
+      return '施放Lightning Strike' + value + '次';
     }
   },
   {
-    name: 'Titan Shield',
+    name: '泰坦之盾(Titan Shield)',
     id: 155,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 6 && save.prestigeFaction == -1 && util.save.stat(save, 1) >= 36000;
@@ -394,11 +394,11 @@ var Artifacts = [
       return Math.max(Math.ceil(value * 18000000), 36000);
     },
     display: function(value) {
-      return util.render.time(value) + ' Playtime'
+      return util.render.time(value) + ' 游戏时间'
     }
   },
   {
-    name: 'Glyph Table',
+    name: '符文石板(Glyph Table)',
     id: 138,
     fixed: function(save) {
       var counts = util.save.building_counts(save);
@@ -412,7 +412,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Stone of Balance',
+    name: '平衡之石(Stone of Balance)',
     id: 153,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 7 && save.prestigeFaction == -1;
@@ -424,11 +424,11 @@ var Artifacts = [
       return Math.ceil(value * 3000000);
     },
     display: function(value) {
-      return value + ' Grand Balance Cast' + (value>1?'s':'');;
+      return '施放Grand Balance ' + value + '次';
     }
   },
   {
-    name: 'Translucent Goo',
+    name: '半透明粘胶(Translucent Goo)',
     id: 156,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 8 && save.prestigeFaction == -1;
@@ -440,11 +440,11 @@ var Artifacts = [
       return Math.ceil(value * 40000);
     },
     display: function(value) {
-      return value + ' Brainwave Cast' + (value>1?'s':'');;
+      return '施放Brainwave ' + value + '次';
     }
   },
   {
-    name: 'Octopus-shaped Helmet',
+    name: '章鱼状头盔(Octopus-shaped Helmet)',
     id: 145,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == 8 && save.prestigeFaction == -1;
@@ -460,7 +460,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Dwarven Bow',
+    name: '矮人弓(Dwarven Bow)',
     id: 136,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.prestigeFaction == 9;
@@ -472,11 +472,11 @@ var Artifacts = [
       return Math.ceil(value * 2500000);
     },
     display: function(value) {
-      return value + ' Treasure Click' + (value>1?'s':'');
+      return value + ' 点击数';
     }
   },
   {
-    name: 'Stone Tankard',
+    name: '石质啤酒杯(Stone Tankard)',
     id: 154,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.prestigeFaction == 9;
@@ -492,7 +492,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Ceremonial Dagger',
+    name: '仪礼匕首(Ceremonial Dagger)',
     id: 133,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.prestigeFaction == 10 && util.save.stat(save, 4) == 0;
@@ -502,7 +502,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Arachnid Figurine',
+    name: '蛛形雕像(Arachnid Figurine)',
     id: 130,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.prestigeFaction == 10 && util.save.stat(save, 3, 2) >= 86400;
@@ -514,11 +514,11 @@ var Artifacts = [
       return Math.ceil(value * 432000000);
     },
     display: function(value) {
-      return util.render.time(value) + ' All Time Evil Time';
+      return util.render.time(value) + ' 总邪恶阵营时间';
     }
   },
   {
-    name: 'Steel Plate',
+    name: '钢制护甲(Steel Plate)',
     id: 152,
 	  reincarnation: 5,
     fixed: function(save) {
@@ -529,7 +529,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Black Sword',
+    name: '黑暗剑(Black Sword)',
     id: 131,
 	  reincarnation: 3,
     fixed: function(save) {
@@ -542,11 +542,11 @@ var Artifacts = [
       return Math.ceil(value * 6000000);
     },
     display: function(value) {
-      return util.render.time(value) + ' All Time Mercenary Time';
+      return util.render.time(value) + ' 总佣兵时间';
     }
   },
   {
-    name: 'Dragon Fang',
+    name: '龙牙(Dragon Fang)',
     id: 229,
 	  reincarnation: 50,
     fixed: function(save) {
@@ -564,7 +564,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Dragon Soul',
+    name: '龙魂(Dragon Soul)',
     id: 230,
 	  reincarnation: 50,
     fixed: function(save) {
@@ -577,11 +577,11 @@ var Artifacts = [
       return save.spells[21].c / 20000000;
     },
     display: function(value) {
-      return value + ' Dragon\'s Breath Cast' + (value>1?'s':'');;
+      return '施放Dragon\'s Breath ' + value + '次';
     }
   },
   {
-    name: 'Vanilla Flavor Juice',
+    name: '香子兰风味果汁(Vanilla Flavor Juice)',
     id: 179,
 	  reincarnation: 16,
     fixed: function(save) {
@@ -592,7 +592,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Know Your Enemy, Part I',
+    name: '了解你的敌人，卷 I(Know Your Enemy, Part I)',
     id: 178,
 	  reincarnation: 12,
     fixed: function(save) {
@@ -606,7 +606,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Voodoo Doll',
+    name: '巫毒娃娃(Voodoo Doll)',
     id: 187,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.alignment == 2;
@@ -625,7 +625,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Wall Fragment',
+    name: '墙碎片(Wall Fragment)',
     id: 177,
 	  reincarnation: 40,
     fixed: function(save) {
@@ -636,7 +636,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Spiky Rough Egg',
+    name: '带刺粗糙蛋(Spiky Rough Egg)',
     id: 211,
 	  reincarnation: 46,
     fixed: function(save) {
@@ -648,7 +648,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Fortune Teller Machine',
+    name: '预言机器(Fortune Teller Machine)',
     id: 215,
     fixed: function(save) {
       return util.save.upgrade_owned(save,469) && save.faction == -1 && save.prestigeFaction == -1;
@@ -658,7 +658,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Dawnstone',
+    name: '黎明石(Dawnstone)',
     id: 233,
     fixed: function(save) {
       var h = new Date().getHours();
@@ -673,7 +673,7 @@ var Artifacts = [
 	  return value * 1000000;
 	},
 	display: function(value) {
-	  return Math.ceil(value) + " Excavations at this point";
+	  return "这时的挖掘深度 " + Math.ceil(value);
 	}/*,
     required: function(value, save, n) {
       if (Math.ceil(value * 1000000) < n + save.excavations)
@@ -685,7 +685,7 @@ var Artifacts = [
     }*/
   },
   {
-    name: 'Duskstone',
+    name: '黄昏石(Duskstone)',
     id: 234,
     fixed: function(save) {
       var h = new Date().getHours();
@@ -700,7 +700,7 @@ var Artifacts = [
 	  return value * 1000000;
 	},
 	display: function(value) {
-	  return Math.ceil(value) + " Excavations at this point";
+	  return "这时的挖掘深度 " + Math.ceil(value);
 	}/*,
     required: function(value, save, n) {
       if (Math.ceil(value * 1000000) < n + save.excavations)
@@ -712,7 +712,7 @@ var Artifacts = [
     }*/
   },
   {
-    name: 'Ancient Heirloom',
+    name: '传家宝(Ancient Heirloom)',
     id: 237,
 	  reincarnation: 60,
     fixed: function (save) {
@@ -731,11 +731,11 @@ var Artifacts = [
       return Math.ceil(value * 2000);
     },
     display: function (value) {
-      return 'Level ' + Math.ceil(value) + ' total lineages';
+      return '总族系等级 ' + Math.ceil(value);
     }
   },
   {
-    name: 'Know Your Enemy, Part II',
+    name: '了解你的敌人，卷 II(Know Your Enemy, Part II)',
     id: 242,
 	  reincarnation: 76,
     fixed: function(save) {
@@ -749,7 +749,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Veteran Figurine',
+    name: '老兵雕像(Veteran Figurine)',
     id: 268,
     reincarnation: 90,
     fixed: function(save) {
@@ -762,11 +762,11 @@ var Artifacts = [
       return Math.ceil(value * 100000000);
     },
     display: function(value) {
-      return util.render.time(value) + ' Playtime'
+      return util.render.time(value) + ' 游戏时间'
     }
   },
   {
-    name: 'Ancient Cocoa Bean',
+    name: '远古可可豆(Ancient Cocoa Bean)',
     id: 269,
 	  reincarnation: 22,
     fixed: function(save) {
@@ -778,7 +778,7 @@ var Artifacts = [
   },
 
   {
-    name: 'Wall Chunk',
+    name: '墙碎块(Wall Chunk)',
     id: 256,
     reincarnation: 100,
     fixed: function(save) {
@@ -790,7 +790,7 @@ var Artifacts = [
   },
 
   {
-    name: 'Excavated Mirage',
+    name: '挖出幻觉(Excavated Mirage)',
     id: 257,
     reincarnation: 100,
     fixed: function(save) {
@@ -804,11 +804,11 @@ var Artifacts = [
       return Math.pow(10, value * 10000);
     },
     display: function (value) {
-      return util.render.sci(Math.ceil(value)) + '% Faction Coin Chance';
+      return util.render.sci(Math.ceil(value)) + '% 种族币获取概率';
     }
   },
   {
-    name: 'Ancestral Hourglass',
+    name: '祖传沙漏(Ancestral Hourglass)',
     id: 284,
     reincarnation: 100,
     fixed: function(save) {
@@ -821,11 +821,11 @@ var Artifacts = [
       return Math.ceil(value * 500000000000000000);
     },
     display: function(value) {
-      return util.render.sci(value) + '% Faction Coin Chance';
+      return util.render.sci(value) + '% 种族币获取概率';
     }
   },
   {
-    name: 'Nightmare Figment',
+    name: '噩梦臆质(Nightmare Figment)',
     id: 278,
     reincarnation: 100,
     fixed: function (save) {
@@ -838,11 +838,11 @@ var Artifacts = [
       return Math.pow(value * 2000000000, 2 / 3);
     },
     display: function (value) {
-      return util.render.time(value) + ' Brainwave headstart';
+      return util.render.time(value) + ' Brainwave 起步时间';
     }
   },
   {
-    name: 'Branch of the Life Tree',
+    name: '生命树枝(Branch of the Life Tree)',
     id: 274,
     reincarnation: 100,
     fixed: function (save) {
@@ -855,11 +855,11 @@ var Artifacts = [
       return Math.pow(value * 200000000, 1 / 3);
     },
     display: function (value) {
-      return 'Level ' + Math.ceil(value) + ' Druid Lineage';
+      return '德鲁伊族系等级 ' + Math.ceil(value);
     }
   },
   {
-    name: 'Titan Helmet',
+    name: '泰坦头盔(Titan Helmet)',
     id: 283,
     reincarnation: 100,
     fixed: function (save) {
@@ -876,11 +876,11 @@ var Artifacts = [
       return exchanges;
     },
     display: function (value) {
-      return Math.ceil(value) + ' Royal Exchanges';
+      return Math.ceil(value) + ' 皇家交易所(R.E)';
     }
   },
   {
-    name: 'Crystallized Lava',
+    name: '晶状熔岩(Crystallized Lava)',
     id: 275,
     reincarnation: 100,
     fixed: function (save) {
@@ -897,7 +897,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Dusty Coffin', // TODO: higher is better, might require rework of the entire page logic
+    name: '积尘旧棺(Dusty Coffin)', // TODO: higher is better, might require rework of the entire page logic
     id: 276,
     reincarnation: 100,
     fixed: function (save) {
@@ -911,11 +911,11 @@ var Artifacts = [
       return Math.floor(Math.pow((1 / (value * 100)) - 30, 1 / 1.5));
     },
     display: function (value) {
-      return util.render.time(~~value) + ' spent this game';
+      return '本局游戏时间少于 ' + util.render.time(~~value);
     }
   },
   {
-    name: 'Spiked Whip',
+    name: '荆棘之鞭(Spiked Whip)',
     id: 282,
     reincarnation: 100,
     fixed: function (save) {
@@ -932,7 +932,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Fossilized Wing',
+    name: '化石羽翼(Fossilized Wing)',
     id: 277,
     reincarnation: 100,
     fixed: function (save) {
@@ -945,11 +945,11 @@ var Artifacts = [
       return value * 2592000000;
     },
     display: function (value) {
-      return util.render.time(value) + ' Angel time';
+      return util.render.time(value) + ' 天使游戏时间（总计）';
     }
   },
   {
-    name: 'Raw Emerald',
+    name: '翡翠原石(Raw Emerald)',
     id: 280,
     reincarnation: 100,
     fixed: function (save) {
@@ -962,11 +962,11 @@ var Artifacts = [
       return Math.pow(value * 1000000 , (1 / 4.5)) / 3;
     },
     display: function (value) {
-      return Math.ceil(value) + ' Excavation Resets this game';
+      return '本次游戏挖掘重置' + Math.ceil(value) + '次';
     }
   },
   {
-    name: 'Silk Cloth',
+    name: '丝绸织物(Silk Cloth)',
     id: 281,
     reincarnation: 100,
     fixed: function (save) {
@@ -983,7 +983,7 @@ var Artifacts = [
     }
   },
   {
-    name: 'Beard Hair',
+    name: '胡子发束(Beard Hair)',
     id: 273,
     reincarnation: 116,
     fixed: function (save) {
@@ -996,11 +996,11 @@ var Artifacts = [
       return value * 10000000000;
     },
     display: function (value) {
-      return Math.ceil(value) + ' Base Assistants';
+      return Math.ceil(value) + ' 个基础助手';
     }
   },
   {
-    name: 'Poison Vial',
+    name: '有毒药瓶(Poison Vial)',
     id: 279,
     reincarnation: 116,
     fixed: function (save) {
@@ -1013,11 +1013,11 @@ var Artifacts = [
       return Math.pow((value * 1000000000) / 40, 1 / 0.9);
     },
     display: function (value) {
-      return Math.ceil(value) + ' Combo Strike Counter';
+      return Math.ceil(value) + ' Combo Strike 计数值';
     }
   },
   {
-    name: 'Dragon Scale',
+    name: '龙鳞(Dragon Scale)',
     id: 292,
     reincarnation: 116,
     fixed: function (save) {
@@ -1030,12 +1030,12 @@ var Artifacts = [
       return value * 250000;
     },
     display: function (value) {
-      return Math.ceil(value) + ' Active Spells';
+      return Math.ceil(value) + ' 个活跃法术';
     }
   },
   //TODO
   {
-    name: 'Lantern of Guidance',
+    name: '指引灯笼(Lantern of Guidance)',
     id: 294,
     reincarnation: 120,
     fixed: function (save) {
@@ -1050,12 +1050,12 @@ var Artifacts = [
       return value * 1000000000000;
     },
     display: function (value) {
-      return util.render.sci(value) + ' Mana per second';
+      return '每秒产魔 ' + util.render.sci(value);
     }
   },
 
   {
-    name: 'Oil Lamp',
+    name: '油灯(Oil Lamp)',
     id: 295,
     reincarnation: 120,
     fixed: function (save) {
@@ -1071,12 +1071,12 @@ var Artifacts = [
       return value * 100000;
     },
     display: function (value) {
-      return 'At least ' + util.render.time(value * 86400) + ' activity time (all time) for each of these spells: Fairy Chanting, Hellfire Blast and Brainwave';
+      return 'Fairy Chanting, Hellfire Blast 和 Brainwave 每种法术活跃时间（全游戏）达到至少 ' + util.render.time(value * 86400);
     }
   },
 
   {
-    name: 'Spark of Life',
+    name: '生命火花(Spark of Life)',
     id: 296,
     reincarnation: 120,
     fixed: function (save) {
@@ -1090,12 +1090,12 @@ var Artifacts = [
       return Math.pow(10,Math.sqrt(value * 600000)) - 1;
     },
     display: function (value) {
-      return util.render.sci(value) + ' Faction Coins found';
+      return util.render.sci(value) + ' 总种族币数（本游戏）';
     }
   },
 
   {
-    name: 'First Crystal Fragment',
+    name: '第一块水晶碎片(First Crystal Fragment)',
     id: 300,
     reincarnation: 125,
     fixed: function (save) {
@@ -1109,12 +1109,12 @@ var Artifacts = [
       return value * 10000000000000;
     },
     display: function (value) {
-      return util.render.sci(value) + ' Base Assistants';
+      return util.render.sci(value) + ' 个基础助手';
     }
   },
 
   {
-    name: 'Second Crystal Fragment',
+    name: '第二块水晶碎片(Second Crystal Fragment)',
     id: 303,
     reincarnation: 125,
     fixed: function (save) {
@@ -1128,12 +1128,12 @@ var Artifacts = [
       return Math.pow(10,Math.pow(value*250000000,1/3));
     },
     display: function (value) {
-      return util.render.sci(value) + ' Faction Coins found (this Game)';
+      return util.render.sci(value) + ' 总种族币数（本游戏）';
     }
   },
 
   {
-    name: 'Third Crystal Fragment',
+    name: '第三块水晶碎片(Third Crystal Fragment)',
     id: 306,
     reincarnation: 125,
     fixed: function (save) {
@@ -1147,12 +1147,12 @@ var Artifacts = [
       return value * 5000000000;
     },
     display: function (value) {
-      return util.render.sci(value) + ' Evil Spells cast (This Reincarnation)';
+      return '本R施放邪恶法术 ' + util.render.sci(value) + ' 次';
     }
   },
 
   {
-    name: 'First Iron Fragment',
+    name: '第一块铁质碎片(First Iron Fragment)',
     id: 301,
     reincarnation: 125,
     fixed: function (save) {
@@ -1167,12 +1167,12 @@ var Artifacts = [
       return Math.pow(10,Math.pow(value*10000000,1/3));
     },
     display: function (value) {
-      return util.render.sci(value) + ' Mana per second';
+      return '每秒产魔 ' + util.render.sci(value);
     }
   },
 
   {
-    name: 'Second Iron Fragment',
+    name: '第二块铁质碎片(Second Iron Fragment)',
     id: 304,
     reincarnation: 125,
     fixed: function (save) {
@@ -1186,12 +1186,12 @@ var Artifacts = [
       return Math.pow(value * 500000000000, 1/3);
     },
     display: function (value) {
-      return Math.ceil(value) + '% individual Royal Exchange Bonus';
+      return Math.ceil(value) + '% 单个R.E加成';
     }
   },
 
   {
-    name: 'Third Iron Fragment',
+    name: '第三块铁质碎片(Third Iron Fragment)',
     id: 307,
     reincarnation: 125,
     fixed: function (save) {
@@ -1206,12 +1206,12 @@ var Artifacts = [
       return Math.pow(10 ,Math.pow(value * 100000000,1/3) + 2);
     },
     display: function (value) {
-      return util.render.sci(value) + '% Offline Production Bonus';
+      return util.render.sci(value) + '% 离线产能加成';
     }
   },
 
   {
-    name: 'First Stone Fragment',
+    name: '第一块石质碎片(First Stone Fragment)',
     id: 302,
     reincarnation: 125,
     fixed: function (save) {
@@ -1225,12 +1225,12 @@ var Artifacts = [
       return Math.pow(10,Math.pow(value*2000000,1/3));
     },
     display: function (value) {
-      return util.render.sci(value)  + ' Clicks (This Game)';
+      return util.render.sci(value)  + ' 点击数（本游戏）';
     }
   },
 
   {
-    name: 'Second Stone Fragment',
+    name: '第二块石质碎片(Second Stone Fragment)',
     id: 305,
     reincarnation: 125,
     fixed: function (save) {
@@ -1244,12 +1244,12 @@ var Artifacts = [
       return value * 2000000000;
     },
     display: function (value) {
-      return Math.ceil(value) + ' Buildings (Multipliers do NOT count)';
+      return Math.ceil(value) + ' 建筑数（乘算加成数不计！）';
     }
   },
 
   {
-  name: 'Third Stone Fragment',
+  name: '第三块石质碎片(Third Stone Fragment)',
     id: 308,
     reincarnation: 125,
     fixed: function (save) {
@@ -1263,12 +1263,12 @@ var Artifacts = [
       return Math.pow(10,Math.pow(value*12500000,1/3));;
     },
     display: function (value) {
-      return util.render.sci(value) + ' Tax Collections (This Game)';
+      return util.render.sci(value) + ' Tax Collections (本游戏)';
     }
   },
 
   {
-    name: 'Planetary Force',
+    name: '行星之力(Planetary Force)',
     id: 319,
     reincarnation: 100,
     fixed: function(save) {
@@ -1282,12 +1282,12 @@ var Artifacts = [
       return Math.pow(value*500000,1/2.5);
     },
     display: function (value) {
-      return Math.ceil(value) + ' Consecutive Days logged in';
+      return '连续登录 ' + Math.ceil(value) + ' 天';
     }
   },
 
   {
-    name: 'Mercenary Insignia',
+    name: '佣兵徽章(Mercenary Insignia)',
     id: 330,
 	reincarnation: 160,
     fixed: function(save) {
@@ -1300,14 +1300,14 @@ var Artifacts = [
       return 10**(Math.ceil(value / 0.001) + 37);
     },
     display: function (value) {
-      return Math.ceil(value).toPrecision(1) + ' Gems';
+      return Math.ceil(value).toPrecision(1) + ' 宝石数';
     }
   },
 	
   
 
   {
-    name: 'Obsidian Crown',
+    name: '黑曜石冠饰(Obsidian Crown)',
     id: 331,
 	reincarnation: 170,
     fixed: function(save) {
@@ -1320,12 +1320,12 @@ var Artifacts = [
       return (value * 100000) + 10;
     },
     display: function (value) {
-      return Math.ceil(value) + ' Excavation Resets (This Game)';
+      return '本次游戏挖掘重置' + Math.ceil(value) + '次';
     }
   },
 	
   {
-    name: 'Forgotten Relic',
+    name: '被遗忘的遗迹(Forgotten Relic)',
     id: 344,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1338,12 +1338,12 @@ var Artifacts = [
       return Math.pow(value * 10000000000000, 1/2);
     },
     display: function (value) {
-      return Math.ceil(value) + ' Research Budget Spent';
+      return '使用 ' + Math.ceil(value) + ' 研究预算点数';
     }
   },
 	
   {
-    name: 'Mana Loom',
+    name: '魔力纺车(Mana Loom)',
     id: 350,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1356,12 +1356,12 @@ var Artifacts = [
       return Math.pow(10, Math.pow((value * 5000000),1/3));
     },
     display: function (value) {
-      return Math.ceil(value) + ' Mana Produced (This Game)';
+      return '本游戏产魔' + Math.ceil(value);
     }
   },
 	
   {
-    name: 'Factory',
+    name: '工厂(Factory)',
     id: 349,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1374,12 +1374,12 @@ var Artifacts = [
       return Math.pow(10, Math.pow((value * 1000000),1/3));
     },
     display: function (value) {
-      return Math.ceil(value) + ' Clicks (This Game)';
+      return Math.ceil(value) + ' 点击数 （本游戏）';
     }
   },
 	
  {
-    name: 'Mythos',
+    name: '神史(Mythos)',
     id: 351,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1392,12 +1392,12 @@ var Artifacts = [
       return (value * 432000000);
     },
     display: function (value) {
-      return util.render.time(value) + ' minimum Spell Activity Time (This R)';
+      return '本R最小法术活跃时间 ' + util.render.time(value);
     }
   },
 	
   {
-    name: 'Vault',
+    name: '保险箱(Vault)',
     id: 352,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1410,12 +1410,12 @@ var Artifacts = [
       return (value * 10000000000);
     },
     display: function (value) {
-      return Math.ceil(value) + ' individual Royal Exchange Bonus';
+      return Math.ceil(value) + ' 单个R.E加成';
     }
   },
 	
   {
-    name: 'Athanor',
+    name: '炼金熔炉(Athanor)',
     id: 347,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1428,12 +1428,12 @@ var Artifacts = [
       return (value * 100000000);
     },
     display: function (value) {
-      return Math.ceil(value) + ' Alchemy Research Points';
+      return Math.ceil(value) + ' 炼金术分支研究点数';
     }
   },	
 
   {
-    name: 'Battlefield',
+    name: '战场遗址(Battlefield)',
     id: 348,
 	  reincarnation: 175,
     fixed: function(save) {
@@ -1446,7 +1446,7 @@ var Artifacts = [
       return (Math.pow(10, Math.pow((value * 2000000),1/3)));
     },
     display: function (value) {
-      return Math.ceil(value) + ' Assistants';
+      return Math.ceil(value) + ' 个助手';
     }
   }
 	

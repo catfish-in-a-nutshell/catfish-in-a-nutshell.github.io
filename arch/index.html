@@ -79,26 +79,26 @@
         </div>
         <ul class='nav nav-pills' role='tablist'>
             <li class='active' role='presentation'>
-                <a href='#tab-artifact' aria-controls='Artifact Forecast' role='tab' data-toggle='pill'> Artifact Forecast </a>
+                <a href='#tab-artifact' aria-controls='Artifact Forecast' role='tab' data-toggle='pill'> 遗物预报 </a>
             </li>
             <li role='presentation'>
-                <a href='#tab-raw' aria-controls='Small Values' role='tab' data-toggle='pill'> Small Values </a>
+                <a href='#tab-raw' aria-controls='Small Values' role='tab' data-toggle='pill'> 小值(s.v) </a>
             </li>
         </ul>
         <div class='tab-content'>
             <div role='tabpanel' class='tab-pane fade in active' id='tab-artifact'>
                 <div class="alert alert-warning">
-                    Due to some statistics used for artifact chances not being in the savefile, you will have to compare the "could find with" value with your ingame values for some artifacts. Currently this applies to the following: Power Orb, Beard Hair, First Crystal Fragment, First Iron Fragment, Second Iron Fragment, Third Iron Fragment, Excavated Mirage, Ancestral Hourglass, Lantern of Guidance, Vault, Battlefield.
+                    由于某些计算遗物概率的数据不在存档文件里，你需要自己把“可以挖出……需要……”的值和你游戏里的数值做比较。目前这条适用于以下的遗物：能量球(Power Orb)，胡子发束(Beard Hair)，第一块水晶碎片(First Crystal Fragment), 第一块铁质碎片(First Iron Fragment), 第二块铁质碎片(Second Iron Fragment), 第三块铁质碎片(Third Iron Fragment), 挖出幻觉(Excavated Mirage), 祖传沙漏(Ancestral Hourglass), 指引灯笼(Lantern of Guidance), 保险箱(Vault), 战场遗址(Battlefield).
 				</div>
                 <div>
                     <div class='results'>
-                        <div class='resultblock'><span class='result'>Artifact RNG State: </span><span>{{result.state}}</span></div>
-                        <div class='resultblock'><span class='result'>Current Excavations: </span><span>{{result.excavations}}</span></div>
-                        <div class='resultblock'><span class='result'>Eligible Artifacts <a data-toggle='popover' data-trigger='hover' data-placement='bottom' data-content='This is the set of artifacts that will consume a value from the RNG when you excavate. It is possible for some artifacts to be eligible even if you cannot obtain them in your current abdication.'>(?)</a>: </span><span>{{eligible}}</span></div>
-                        <div class='resultblock'><span class='result'>Unobtainable Eligible Artifacts: </span><span>{{unobtain}}</span></div>
-                        <div class='resultblock'><span class='result'>Non-Random Artifacts: </span><span>{{nonrandom}}</span></div>
+                        <div class='resultblock'><span class='result'>遗物随机数生成器状态: </span><span>{{result.state}}</span></div>
+                        <div class='resultblock'><span class='result'>当前挖掘深度: </span><span>{{result.excavations}}</span></div>
+                        <div class='resultblock'><span class='result'>有效遗物 <a data-toggle='popover' data-trigger='hover' data-placement='bottom' data-content='这些遗物在你挖掘时，会从随机数生成器里各消耗一个随机值。对某些遗物来说，即使你这次退职前无法获得，它仍然是有效的.'>(?)</a>: </span><span>{{eligible}}</span></div>
+                        <div class='resultblock'><span class='result'>无法获得的有效遗物: </span><span>{{unobtain}}</span></div>
+                        <div class='resultblock'><span class='result'>非随机遗物: </span><span>{{nonrandom}}</span></div>
                         <br>
-                        <div class='resultblock'><span class='result'>Upcoming Excavations: </span>
+                        <div class='resultblock'><span class='result'>未来挖掘: </span>
                             <ul>
                                 <li v-for="excav in excavs" , track-by="$index">{{excav}}</li>
                             </ul>
@@ -108,12 +108,12 @@
             </div>
             <div role='tabpanel' class='tab-pane fade in' id='tab-raw'>
                 <canvas id='chartcontainer' height='100'></canvas>
-                <div hidden class='artifactviewer viewertitle'> <span class='result'>Artifact Requirements</span>
+                <div hidden class='artifactviewer viewertitle'> <span class='result'>遗物要求</span>
                     <div class='artifactviewer viewer-results'> </div>
                     <br>
-                    <input type="checkbox" id="override-box" value="1"> Override Save Reincarnation
+                    <input type="checkbox" id="override-box" value="1"> 覆盖存档的转生数
                     <br>
-                    <span hidden id='artifactform'> View Artifacts up to Reincarnation: <input type="text" id="override-reincarnation" value="125"> </span>
+                    <span hidden id='artifactform'> 查看R<input type="text" id="override-reincarnation" value="125">的情况</span>
                 </div>
             </div>
         </div>
