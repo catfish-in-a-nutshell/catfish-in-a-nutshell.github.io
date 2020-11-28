@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Save Editor : Royal Advisory Board</title>
+  <title>Save Editor : 皇家顾问团</title>
   <link rel='stylesheet' href='../lib/bootstrap.min.css'>
   <link rel='stylesheet' href='../index.css'>
 
@@ -30,11 +30,11 @@
           <span class='icon-bar'></span>
           <span class='icon-bar'></span>
         </button>
-        <a class='navbar-brand' href='../index.html'>Royal Advisory Board</a>
+        <a class='navbar-brand' href='../index.html'>皇家顾问团</a>
       </div>
       <div class='collapse navbar-collapse' id='nav-collapsable-content'>
         <ul class='nav navbar-nav'>
-          <li><a href='../index.html'>Home</a></li>
+          <li><a href='../index.html'>主页</a></li>
           <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Realm Grinder <span class='caret'></span></a>
             <ul class='dropdown-menu'>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Useful Tools <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">实用工具 <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="../rws/index.html">Realm Weather Service</a></li>
               <li><a href='../arch/index.html'>Lara Crypt</a></li>
@@ -53,7 +53,7 @@
             </ul>
           </li>
           <li class='dropdown'>
-            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Seasonal Tools <span class='caret'></span></a>
+            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>季节工具(基本过时) <span class='caret'></span></a>
             <ul class='dropdown-menu'>
               <li><a href='../mri/index.html'>Meggnetic Resonance Imager</a></li>
             </ul>
@@ -72,9 +72,9 @@
           <label id='saveInputLabel' class='input-group-addon' for='saveInput'>Input Save <a data-toggle='popover' data-trigger='hover' data-placement='bottom' data-content='Export your save from Realm Grinder and paste it in this field to view a variety of stats that are not shown in-game.'>(?)</a></label>
           <input id='saveInput' class='form-control' type='text' name='saveInput' value=''>
           <div class='input-group-btn'>
-            <button id='doReEnter' class='btn btn-success' type='button'>Re-Enter save</button>
-            <button id='doSaveCopy' class='btn btn-info' type='button'>Copy save</button>
-            <button id='doSaveClear' class='btn btn-danger' type='button'>Clear save</button>
+            <button id='doReEnter' class='btn btn-success' type='button'>重输存档</button>
+            <button id='doSaveCopy' class='btn btn-info' type='button'>复制存档</button>
+            <button id='doSaveClear' class='btn btn-danger' type='button'>清除存档</button>
           </div>
         </div>
         <div class='input-group'>
@@ -82,7 +82,7 @@
           <input readonly id='saveOutput' class='form-control' v-model='outputsave' onclick='this.select()'></input>
           <div class='input-group-btn'>
             <button id='doGenSave' class='btn btn-success' type='button' @click='genSave'>Generate and copy save to clipboard</button>
-            <!--<button id='doGenCopy' class='btn btn-info' type='button'>Copy save</button>-->
+            <!--<button id='doGenCopy' class='btn btn-info' type='button'>复制存档</button>-->
           </div>
         </div>
       </div>

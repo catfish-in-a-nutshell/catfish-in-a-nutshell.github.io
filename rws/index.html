@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Realm Weather Service : Royal Advisory Board</title>
+	<title>Realm Weather Service : 皇家顾问团</title>
 	<link rel="stylesheet" href="../lib/bootstrap.min.css">
 	<link rel="stylesheet" href="../index.css">
 
@@ -67,11 +67,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../index.html">Royal Advisory Board</a>
+				<a class="navbar-brand" href="../index.html">皇家顾问团</a>
 			</div>
 			<div class="collapse navbar-collapse" id="nav-collapsable-content">
 				<ul class="nav navbar-nav">
-					<li><a href="../index.html">Home</a></li>
+					<li><a href="../index.html">主页</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Realm Grinder <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -82,7 +82,7 @@
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Useful Tools <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">实用工具 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="../rws/index.html">Realm Weather Service</a></li>
 							<li><a href='../arch/index.html'>Lara Crypt</a></li>
@@ -90,7 +90,7 @@
 						</ul>
 					</li>
 					<li class='dropdown'>
-						<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Seasonal Tools <span class='caret'></span></a>
+						<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>季节工具(基本过时) <span class='caret'></span></a>
 						<ul class='dropdown-menu'>
 							<li><a href='../mri/index.html'>Meggnetic Resonance Imager</a></li>
 						</ul>
@@ -100,20 +100,20 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h2 id="title" class="page-header">Realm Weather Service <small>Because Luck is a Fallacy</small></h2>
+		<h2 id="title" class="page-header">Realm Weather Service <small>因为运气是一场谬论</small></h2>
 		<div class="panel panel-primary">
-			<div class="panel-heading">Your court meteorologist looks at you expectantly. "Your Majesty, I will need the kingdom's records in order to produce a forecast," he says.</div>
+			<div class="panel-heading">你的宫廷气象学家期待地看着你，“我的陛下，我将需要国家的记录来作出预报，”他说。</div>
 			<div class="panel-body input-group panelSaveInput">
-				<label id="saveInputLabel" class="input-group-addon" for="saveInput"><a title="Save" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Export your save from Realm Grinder and paste it in this field to view your forecast.">Save (?)</a></label>
+				<label id="saveInputLabel" class="input-group-addon" for="saveInput"><a title="存档" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="从Realm Grinder导出存档，然后粘贴到这里来查看预报。">存档 (?)</a></label>
 				<input id="saveInput" class="form-control" type="text" name="saveInput" value="">
 				<div class="input-group-btn">
-					<button id="doReEnter" class="btn btn-success" type="button">Re-Enter save</button>
-					<button id="doSaveCopy" class="btn btn-info" type="button">Copy save</button>
-					<button id="doSaveClear" class="btn btn-danger" type="button">Clear save</button>
+					<button id="doReEnter" class="btn btn-success" type="button">重输存档</button>
+					<button id="doSaveCopy" class="btn btn-info" type="button">复制存档</button>
+					<button id="doSaveClear" class="btn btn-danger" type="button">清除存档</button>
 				</div>
 			</div>
 		</div>
-		<div class="alert alert-info" v-show="breathMessage != ''">Dragon's breath forecast fixed, Maelstrom and Limited wish forecast added (Limited wish is a bit inaccurate due to issues)</div>
+		<div class="alert alert-info" v-show="breathMessage != ''">龙息的预报已修复，添加了大漩涡和有限祈愿的预报（有限祈愿由于一些问题不是很准确）</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<div id="buildings"></div>
@@ -121,13 +121,13 @@
 		</div>
 		<br>
 		<div class="tab">
-			<button class="tablinks" onclick="openForecast(event, 'LS')">Lightning Strike</button>
-			<button class="tablinks" onclick="openForecast(event, 'Miracle')">Miracle</button>
-			<button class="tablinks" onclick="openForecast(event, 'DB')">Dragon's Breath</button>
-			<button class="tablinks" onclick="openForecast(event, 'MS')">Maelstrom</button>
-            <button class="tablinks" onclick="openForecast(event, 'LW')">Limited Wish</button>
-            <button class="tablinks" onclick="openForecast(event, 'Cata')">Catalyst</button>
-			<button class="tablinks" onclick="openForecast(event, 'DJC4')">Worldly Desires</button>
+			<button class="tablinks" onclick="openForecast(event, 'LS')">雷击(Lightning Strike)</button>
+			<button class="tablinks" onclick="openForecast(event, 'Miracle')">奇迹(Miracle)</button>
+			<button class="tablinks" onclick="openForecast(event, 'DB')">龙息(Dragon's Breath)</button>
+			<button class="tablinks" onclick="openForecast(event, 'MS')">大漩涡(Maelstrom)</button>
+            <button class="tablinks" onclick="openForecast(event, 'LW')">有限祈愿(Limited Wish)</button>
+            <button class="tablinks" onclick="openForecast(event, 'Cata')">催化剂(Catalyst)</button>
+			<button class="tablinks" onclick="openForecast(event, 'DJC4')">世界之愿(Worldly Desires)</button>
 		</div>
 		<div id="LS" class="tabcontent">
 				<br>
@@ -156,9 +156,9 @@
         <div id="LW" class="tabcontent">
 				<br>
 				<div id="limitedWishMessage"></div>
-				<div hidden id="limitedWishForecastOptions"><br><b>Show Forecast By: </b><br>
-				<input type="radio" name="LWForecastType" value="value" checked> Value <br>
-				<input type="radio" name="LWForecastType" value="percentage"> Percentage <br> </div>
+				<div hidden id="limitedWishForecastOptions"><br><b>显示预报排序： </b><br>
+				<input type="radio" name="LWForecastType" value="value" checked> 数值 <br>
+				<input type="radio" name="LWForecastType" value="percentage"> 百分比 <br> </div>
 				<br>
 				<div id="limitedWishForecast"></div>
 				<div id="limitedWishForecastAlt"></div>
