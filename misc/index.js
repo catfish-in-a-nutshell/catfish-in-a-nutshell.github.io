@@ -51,7 +51,7 @@
         
         if (spell.unlocked + 1 == maxTier)
         {
-            spell.text = "Spell is already at max tier";
+            spell.text = "法术已达最大等级";
         }
         else
         {
@@ -61,11 +61,11 @@
             
             if (spell.time2tier < 0)
             {
-                spell.text = "Next tier will be unlocked when spell is visible";
+                spell.text = "下一等级会在这一法术拥有时即刻解锁";
             }
             else
             {          
-                spell.text = "Next tier in " + util.render.time(spell.time2tier);
+                spell.text = "下一等级时间: " + util.render.time(spell.time2tier);
             }
         }
         
@@ -119,7 +119,7 @@
 		  }
 		  
 		  timeLineTimeSpent += minTierTime;
-		  timeLineText.push(util.render.time(timeLineTimeSpent) + ": " + spell2tier.name + " Will tier to tier " + (spell2tier.unlocked + 2));
+		  timeLineText.push(util.render.time(timeLineTimeSpent) + ": " + spell2tier.name + " 将升级到 Tier " + (spell2tier.unlocked + 2));
 		  timeLineUnlockedTiers += 1;
 		  currentTiers += 1;
 		  spell2tier.unlocked += 1;
