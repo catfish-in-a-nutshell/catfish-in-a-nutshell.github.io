@@ -258,7 +258,7 @@
 					html: true,
 					content: '当你挖掘时，每个有效遗物每次挖掘会消耗1个随机值。如果你同时有不止一个有效遗物，这意味着'
 					+ '一个好的小值可能被那个“错的”遗物消耗掉。你可以重开、在有更少（但至少1个）有效遗物时挖掘，来让小值发生偏移。'
-					+ '	<br \><b>注意:</b> 如果有一个遗物在偶数次挖掘(比如2000次)时变得有效，那一次挖掘同样会造成一次小值偏移。'
+					+ '	<br \><b>注意:</b> 如果有一个遗物在某个整数次挖掘(比如2000次)时变得有效，那一次挖掘同样会造成一次小值偏移。'
 				});
 			}
 			reinc = ($("#override-box").is(":checked") && !isNaN(parseInt($('#override-reincarnation').val()))) ? $('#override-reincarnation').val() : this.save.reincarnation;
