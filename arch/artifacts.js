@@ -167,7 +167,7 @@ var Artifacts = [
     name: '能量球(Power Orb)',
     id: 148,
     fixed: function(save) {
-      return util.save.upgrade_owned(save,469);
+      return util.save.upgrade_owned(save,469)  && save.stats[133].stats > 2999;
     },
     random: function(save) {
       return util.save.max_mana(save) / 1500000;
@@ -591,6 +591,17 @@ var Artifacts = [
       return 0.2
     }
   },
+   {
+    name: '远古可可豆(Ancient Cocoa Bean)',
+    id: 269,
+	  reincarnation: 22,
+    fixed: function(save) {
+      return save.reincarnation >= this.reincarnation && save.alignment == 3;
+    },
+    random: function(save) {
+      return 0.1
+    }
+  },
   {
     name: '了解你的敌人，卷 I(Know Your Enemy, Part I)',
     id: 178,
@@ -768,18 +779,6 @@ var Artifacts = [
       return util.render.time(value) + ' 游戏时间'
     }
   },
-  {
-    name: '远古可可豆(Ancient Cocoa Bean)',
-    id: 269,
-	  reincarnation: 22,
-    fixed: function(save) {
-      return save.reincarnation >= this.reincarnation && save.alignment == 3;
-    },
-    random: function(save) {
-      return 0.1
-    }
-  },
-
   {
     name: '墙碎块(Wall Chunk)',
     id: 256,
@@ -1036,7 +1035,6 @@ var Artifacts = [
       return Math.ceil(value) + ' 个活跃法术';
     }
   },
-  //TODO
   {
     name: '指引灯笼(Lantern of Guidance)',
     id: 294,
@@ -1045,8 +1043,6 @@ var Artifacts = [
       return util.save.upgrade_owned(save,749) && save.reincarnation >= this.reincarnation;
     },
     random: function (save) {
-    //(x / 10,000,000,000 (10B))%, where x is mana regen.
-	//set to 1000 until i can figure out a way to get the stat
       return 1000 / 1000000000000 ;
     },
     required: function (value) {
@@ -1056,7 +1052,6 @@ var Artifacts = [
       return '每秒产魔 ' + util.render.sci(value);
     }
   },
-
   {
     name: '油灯(Oil Lamp)',
     id: 295,
@@ -1077,7 +1072,6 @@ var Artifacts = [
       return 'Fairy Chanting, Hellfire Blast 和 Brainwave 每种法术活跃时间（全游戏）达到至少 ' + util.render.time(value * 86400);
     }
   },
-
   {
     name: '生命火花(Spark of Life)',
     id: 296,
@@ -1096,65 +1090,7 @@ var Artifacts = [
       return util.render.sci(value) + ' 总种族币数（本游戏）';
     }
   },
-
-  {
-    name: '第一块水晶碎片(First Crystal Fragment)',
-    id: 300,
-    reincarnation: 125,
-    fixed: function (save) {
-      return save.faction == 0 && save.reincarnation >= this.reincarnation && save.excavations >= 12500;
-    },
-    random: function (save) {
-	//(x / 100000000000 (100B))%, where x is assistant count.
-      return util.save.assistants(save) / 10000000000000;
-    },
-    required: function (value) {
-      return value * 10000000000000;
-    },
-    display: function (value) {
-      return util.render.sci(value) + ' 个基础助手';
-    }
-  },
-
-  {
-    name: '第二块水晶碎片(Second Crystal Fragment)',
-    id: 303,
-    reincarnation: 125,
-    fixed: function (save) {
-      return save.faction == 8 && save.reincarnation >= this.reincarnation && save.excavations >= 12500;
-    },
-    random: function (save) {
-	//(log10(1 + x) ^ 3 / 5000000 (5M))%, where x is faction coins this game.
-      return Math.pow(Math.log10(util.save.faction_coins(save) + 1),3) / 250000000;
-    },
-    required: function (value) {
-      return Math.pow(10,Math.pow(value*250000000,1/3));
-    },
-    display: function (value) {
-      return util.render.sci(value) + ' 总种族币数（本游戏）';
-    }
-  },
-
-  {
-    name: '第三块水晶碎片(Third Crystal Fragment)',
-    id: 306,
-    reincarnation: 125,
-    fixed: function (save) {
-      return save.faction == 5 && save.reincarnation >= this.reincarnation && save.excavations >= 12500;
-    },
-    random: function (save) {
-	//(x / 50000000 (50M))%, where x is evil spells this R.
-      return (save.spells[1].c + save.spells[1].r + save.spells[8].c + save.spells[8].r + save.spells[15].c + save.spells[15].r + save.spells[11].c + save.spells[11].r + save.spells[4].c + save.spells[4].r) / 5000000000;
-    },
-    required: function (value) {
-      return value * 5000000000;
-    },
-    display: function (value) {
-      return '本R施放邪恶法术 ' + util.render.sci(value) + ' 次';
-    }
-  },
-
-  {
+    {
     name: '第一块铁质碎片(First Iron Fragment)',
     id: 301,
     reincarnation: 125,
@@ -1173,7 +1109,6 @@ var Artifacts = [
       return '每秒产魔 ' + util.render.sci(value);
     }
   },
-
   {
     name: '第二块铁质碎片(Second Iron Fragment)',
     id: 304,
@@ -1192,7 +1127,6 @@ var Artifacts = [
       return Math.ceil(value) + '% 单个R.E加成';
     }
   },
-
   {
     name: '第三块铁质碎片(Third Iron Fragment)',
     id: 307,
@@ -1212,7 +1146,60 @@ var Artifacts = [
       return util.render.sci(value) + '% 离线产能加成';
     }
   },
-
+  {
+    name: '第一块水晶碎片(First Crystal Fragment)',
+    id: 300,
+    reincarnation: 125,
+    fixed: function (save) {
+      return save.faction == 0 && save.reincarnation >= this.reincarnation && save.excavations >= 12500;
+    },
+    random: function (save) {
+	//(x / 100000000000 (100B))%, where x is assistant count.
+      return util.save.assistants(save) / 10000000000000;
+    },
+    required: function (value) {
+      return value * 10000000000000;
+    },
+    display: function (value) {
+      return util.render.sci(value) + ' 个基础助手';
+    }
+  },
+  {
+    name: '第二块水晶碎片(Second Crystal Fragment)',
+    id: 303,
+    reincarnation: 125,
+    fixed: function (save) {
+      return save.faction == 8 && save.reincarnation >= this.reincarnation && save.excavations >= 12500;
+    },
+    random: function (save) {
+	//(log10(1 + x) ^ 3 / 5000000 (5M))%, where x is faction coins this game.
+      return Math.pow(Math.log10(util.save.faction_coins(save) + 1),3) / 250000000;
+    },
+    required: function (value) {
+      return Math.pow(10,Math.pow(value*250000000,1/3));
+    },
+    display: function (value) {
+      return util.render.sci(value) + ' 总种族币数（本游戏）';
+    }
+  },
+  {
+    name: '第三块水晶碎片(Third Crystal Fragment)',
+    id: 306,
+    reincarnation: 125,
+    fixed: function (save) {
+      return save.faction == 5 && save.reincarnation >= this.reincarnation && save.excavations >= 12500;
+    },
+    random: function (save) {
+	//(x / 50000000 (50M))%, where x is evil spells this R.
+      return (save.spells[1].c + save.spells[1].r + save.spells[8].c + save.spells[8].r + save.spells[15].c + save.spells[15].r + save.spells[11].c + save.spells[11].r + save.spells[4].c + save.spells[4].r) / 5000000000;
+    },
+    required: function (value) {
+      return value * 5000000000;
+    },
+    display: function (value) {
+      return '本R施放邪恶法术 ' + util.render.sci(value) + ' 次';
+    }
+  },
   {
     name: '第一块石质碎片(First Stone Fragment)',
     id: 302,
@@ -1231,7 +1218,6 @@ var Artifacts = [
       return util.render.sci(value)  + ' 点击数（本游戏）';
     }
   },
-
   {
     name: '第二块石质碎片(Second Stone Fragment)',
     id: 305,
@@ -1250,7 +1236,6 @@ var Artifacts = [
       return Math.ceil(value) + ' 建筑数（乘算加成数不计！）';
     }
   },
-
   {
   name: '第三块石质碎片(Third Stone Fragment)',
     id: 308,
@@ -1269,7 +1254,6 @@ var Artifacts = [
       return '本游戏施放 Tax Collection ' + util.render.sci(value) + ' 次';
     }
   },
-
   {
     name: '行星之力(Planetary Force)',
     id: 319,
@@ -1288,7 +1272,6 @@ var Artifacts = [
       return '连续登录 ' + Math.ceil(value) + ' 天';
     }
   },
-
   {
     name: '佣兵徽章(Mercenary Insignia)',
     id: 330,
@@ -1306,9 +1289,6 @@ var Artifacts = [
       return Math.ceil(value).toPrecision(1) + ' 宝石数';
     }
   },
-	
-  
-
   {
     name: '黑曜石冠饰(Obsidian Crown)',
     id: 331,
@@ -1326,7 +1306,6 @@ var Artifacts = [
       return '本次游戏挖掘重置' + Math.ceil(value) + '次';
     }
   },
-	
   {
     name: '被遗忘的遗迹(Forgotten Relic)',
     id: 344,
@@ -1344,7 +1323,6 @@ var Artifacts = [
       return '使用 ' + Math.ceil(value) + ' 研究预算点数';
     }
   },
-	
   {
     name: '魔力纺车(Mana Loom)',
     id: 350,
@@ -1362,7 +1340,6 @@ var Artifacts = [
       return '本游戏产魔' + Math.ceil(value);
     }
   },
-	
   {
     name: '工厂(Factory)',
     id: 349,
@@ -1381,7 +1358,7 @@ var Artifacts = [
     }
   },
 	
- {
+  {
     name: '神史(Mythos)',
     id: 351,
     reincarnation: 180,
@@ -1398,7 +1375,6 @@ var Artifacts = [
       return '本R最小法术活跃时间 ' + util.render.time(value);
     }
   },
-	
   {
     name: '保险箱(Vault)',
     id: 352,
@@ -1416,7 +1392,6 @@ var Artifacts = [
       return Math.ceil(value) + ' 单个R.E加成';
     }
   },
-	
   {
     name: '炼金熔炉(Athanor)',
     id: 347,
@@ -1434,7 +1409,6 @@ var Artifacts = [
       return Math.ceil(value) + ' 炼金术分支研究点数';
     }
   },	
-
   {
     name: '战场遗址(Battlefield)',
     id: 348,
@@ -1452,7 +1426,6 @@ var Artifacts = [
       return Math.ceil(value) + ' 个助手';
     }
   },
-  
   {
     name: '阿派朗(Apeiron)',
     id: 346,
@@ -1464,10 +1437,9 @@ var Artifacts = [
      return save.reincarnation >= this.reincarnation && save.faction == 11;
     },
     random: function(save) {
-      return 0.1;
+      return 0.001;
     }
   },
-  
   {
     name: '发光羽翼(Glowing Wing)',
     id: 364,
@@ -1485,7 +1457,6 @@ var Artifacts = [
       return '本游戏产魔 ' + util.render.sci(value);
     }
   },
-  
   {
     name: '林中镜(Sylvan Mirror)',
     id: 369,
@@ -1503,7 +1474,6 @@ var Artifacts = [
       return util.render.sci(value) + '% 种族币获取概率';
     }
   },
-  
   {
     name: '固态云端(Solid Cloud)',
     id: 365,
@@ -1521,7 +1491,6 @@ var Artifacts = [
       return Math.ceil(value) + ' 活跃法术数';
     }
   },
-  
   {
     name: '兽人尖牙项链(Orc Fang Necklace)',
     id: 366,
@@ -1538,8 +1507,7 @@ var Artifacts = [
     display: function (value) {
       return '本游戏施放 Tax Collection ' + util.render.sci(value) + ' 次';
     }
-  },
-  
+  }, 
   {
     name: '鲜血金杯(Blood Chalice)',
     id: 371,
@@ -1558,7 +1526,6 @@ var Artifacts = [
       return util.render.time(value) + ' Blood Frenzy 最大持续时间';
     }
   },
-  
   {
     name: '恶魔之尾(Demon Tail)',
     id: 372,
@@ -1576,7 +1543,6 @@ var Artifacts = [
       return '本游戏施放邪恶法术 ' + util.render.sci(value) + ' 次';
     }
   },
-  
   {
     name: '冻结闪电(Frozen Lightning)',
     id: 363,
@@ -1594,7 +1560,6 @@ var Artifacts = [
       return '本游戏 Lightning Strike 活跃时间 ' + util.render.time(value);
     }
   },
-  
   {
     name: '原始叶片(Primal Leaf)',
     id: 367,
@@ -1612,7 +1577,6 @@ var Artifacts = [
       return '本R魔上限 ' + util.render.sci(value);
     }
   },
-  
   {
     name: '极黑墨水(The Blackest Ink)',
     id: 370,
@@ -1630,5 +1594,4 @@ var Artifacts = [
       return '本R最长游戏时间（本次除外）' + util.render.time(value);
     }
   }
-	
 ];
